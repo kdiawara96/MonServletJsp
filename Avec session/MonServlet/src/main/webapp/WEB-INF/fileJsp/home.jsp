@@ -9,43 +9,128 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>HOME PAGE</title>
 
+<!--LOCAL LIEN BOOTSTRAP  -->
 <link href="/http://localhost:8080/MonServlet/css/bootstrap.css" rel="stylesheet" type="text/css">
+ <!--  LIEN OF FONTAWESOME-->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
+
+<!--ONE LINE LIEN BOOTSTRAP  -->
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+         
 
 </head>
 
 <body>
-	<h1 style="text-align: center;">Home Page </h1>
-	<h1>Welcome to  ORANGE DIGITAL CENTER</h1>
-	 	<h2  style="margin-left: 40%; color: green;">Listes des Personnes chez ODK</h2>
-	 	
-	 		<%
-	 			HttpSession sessions = request.getSession();
-		 		List<Personnes> users = (ArrayList<Personnes>) sessions.getAttribute("liste");
+
+
+
+<!-- <style>
+
+    .navbar{
+      box-shadow:0px 5px 5px 	#777;
+    }
+
+</style>
+ -->
+
+<nav class="navbar navbar-expand-lg navbar-primary bg-ligth">
+
+     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+    
+</button>
+
+<div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+
+  <img alt="image" src="img/orange.png" width="60" height="50">
+<a class="navbar-brand" href="#" style="   border:1px solid dart;font-size:15px; border-radius: 5px; margin-left:20px; padding:8px;font-weight:bold; color:orange;">
+
+ORANGE DIGITAL CENTER
+
+</a>
+       <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+ 
+  <li class="nav-item" >
+          <a class="nav-link" href="">
+          <button class="btn btn-outline-success " type="submit"  style="font-size:15px;border-radius:50px; box-shadow:0px 7px 5px 	#777;">OD Kalanso</button></a>
+  </li>
+ 
+<li class="nav-item" >
+      <a class="nav-link" href="">
+      <button class="btn btn-outline-secondary " type="submit"  style="font-size:15px;border-radius:50px; box-shadow:0px 7px 5px 	#777;">OD Simplon</button></a>
+</li>
+
+
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+    
+      <input class="form-control mr-sm-2" type="search" placeholder="Recherche" aria-label="Search">
+      <button class="btn btn-outline-warning my-2 my-sm-0 " type="submit">
+     	 Recherche
+      </button>
+      
+    </form>
+  </div>
+</nav>
+
+
+
+
+	
+	 <!-- 	<h2  style="text-align: center; color: green;">POSTULANTS</h2>
+	 	 -->
+	 <%
+	 
+	   HttpSession sessions = request.getSession();
+		List<Personnes> users = (ArrayList<Personnes>) sessions.getAttribute("liste");
 		
-	 		%>
+	 %>
 	<%int i = 0; %>
 	
 	 <div class="d-flex">
-	 <%for(Personnes us : users){ %>
+		
+	   <%for(Personnes us : users){ %>
+	   
 	 	<div class="card">
-			<h3> <%i++; %></br></h3>
-			<img src="img/cv.jpg" alt="Avatar" style="width:100%; margin-left:0px; margin-right:10px;">
+	 	
+	 	
+	 	  <P style="text-align:center; margin-top:20px; font-weight: bold;s">
+	 	       Bienvenu chez Orange
+	 	  </P>
+			  <img src="img/cv.jpg" alt="Avatar" style="width:100%; margin-left:0px; margin-right:10px;">
 			<div class="container">
-			<h4><b><% out.print(us.getNom()+ " " + us.getPrenom()); %></b></h4>
-			<p><% out.print(us.getPseudo());%></p>
+			
+			<h4>
+			   <b>
+			      <i class="fa-solid fa-user"></i> <% out.print(us.getNom()+ " " + us.getPrenom()); %>
+			   </b>
+			</h4>
+			<p><i class="fa-solid fa-envelope"></i>   <% out.print(us.getEmail());%></p>
+			
 			</div>
+			
     	</div>
-	 <%} %>
+	    <%} %>
   	</div>
 	  
+	  
+	  
+	  <!--STYLE OF CSS TAGS  -->
+	  
 	 <style>
+	 
+	     .navbar{
+      box-shadow:0px 5px 5px 	#777;
+    }
+	 
 	 .d-flex{
 	 	display: flex;
 	 	flex-wrap: wrap;
 	 }
+	 
 	 	.card {
 		    width: calc((100% / 4) - 32px);
 		    margin: 16px;
@@ -55,9 +140,9 @@
 		}
 
 /* On mouse-over, add a deeper shadow */
-.card:hover {
+ .card:hover {
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
-}
+     }
 
 /* Add some padding inside the card container */
 .container {
@@ -66,48 +151,6 @@
 	 
 	 </style>
 
-	<!--  
-<style>
-.flip-card {
-		  background-color: transparent;
-		  width: 300px;
-		  height: 300px;
-		  perspective: 1000px;
-}
 
-.flip-card-inner {
-		  position: relative;
-		  width: 100%;
-		  height: 100%;
-		  text-align: center;
-		  transition: transform 0.6s;
-		  transform-style: preserve-3d;
-		  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-}
-
-.flip-card:hover .flip-card-inner {
-  transform: rotateY(180deg);
-}
-
-.flip-card-front, .flip-card-back {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-}
-
-.flip-card-front {
-  background-color: #bbb;
-  color: black;
-}
-
-.flip-card-back {
-  background-color: #2980b9;
-  color: white;
-  transform: rotateY(180deg);
-}
-</style>
- -->
 </body>
 </html>
