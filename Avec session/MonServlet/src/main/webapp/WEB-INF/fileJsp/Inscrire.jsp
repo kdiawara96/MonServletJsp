@@ -10,50 +10,45 @@ crossorigin="anonymous" referrerpolicy="no-referrer" />
 <title>Inscription page</title>
 </head>
 <body>
-			<div class="container">
+<div class="container">
+	<div class="droite">
+	    <div class="inscrire_texte">
+			<h1>Inscription</h1>
 			
-			 	            
-			 <div class="droite">
-			 
-							   <div class="inscrire_texte">
-						      <h1>Inscription</h1>
-						      
-						      <!--  AFFICHER ERREUR D4ENTRER-->
-						      
-						     
-						       </div>
-						       
-						        <form action="Monservlet2" method="post">
+			<c:if>
+			<h5 style="color: red; font-size:13px;">${sessionScope.error}</h5>
+			</c:if>
+			
+				</div>
+					<form action="Monservlet2" method="post">
 						           
-						           
-									         
-									          <input type="text" name ="nom" placeholder = "Entrer votre nom" style=" margin-bottom:25px; border:none;
-									           border-bottom:1px solid black; width: 85%;   margin-top:20px;   outline:none; background-color: #f0f0f0;
-									            height: 35px;padding-left: 5px" required> </br>
+						   <input type="text" name ="nom" placeholder = "Entrer votre nom" style=" margin-bottom:25px; border:none;
+								 border-bottom:1px solid black; width: 85%;   margin-top:20px;   outline:none; background-color: #f0f0f0;
+								 height: 35px;padding-left: 5px" required > </br>
 										      
-										       <input type="text" name ="prenom" placeholder = "Entrer votre prénom" style=" margin-bottom:30px; border:none;
-										        border-bottom:1px solid black; width: 85%; outline:none;  background-color: #f0f0f0; height: 35px;
-										         padding-left: 5px" required ></br>
+					       <input type="text" name ="prenom" placeholder = "Entrer votre prénom" style=" margin-bottom:30px; border:none;
+				         		  border-bottom:1px solid black; width: 85%; outline:none;  background-color: #f0f0f0; height: 35px;
+								  padding-left: 5px" required  ></br>
 										        
-										        <input type="text" name = "pseudo" placeholder = "Entrer votre pseudo" style=" margin-bottom:25px; border:none;
-										         border-bottom:1px solid black; width: 85%; outline:none;
-										          background-color: #f0f0f0; height: 35px;padding-left: 5px" required> </br>
+						   <input type="text" name = "pseudo" placeholder = "Entrer votre pseudo" style=" margin-bottom:25px; border:none;
+						        border-bottom:1px solid black; width: 85%; outline:none;
+						        background-color: #f0f0f0; height: 35px;padding-left: 5px" required > </br>
 										       
-										       <input type="email" name ="email" placeholder = "Entrer votre E-mail" style=" margin-bottom:30px; border:none;
-										        border-bottom:1px solid black; width: 85%; outline:none;  background-color: #f0f0f0; height: 35px;
-										         padding-left: 5px" required ></br>
+			                <input type="email" name ="email" placeholder = "Entrer votre E-mail" style=" margin-bottom:30px; border:none;
+							     border-bottom:1px solid black; width: 85%; outline:none;  background-color: #f0f0f0; height: 35px;
+								 padding-left: 5px"  required ></br>
 										      
-										      <input type="password" name = "mdp" placeholder = "Entrer votre mot de passe " style=" margin-bottom:25px; 
-										      border:none; border-bottom:1px solid black; width: 85%; outline:none; background-color: #f0f0f0; 
-										      height: 35px;padding-left: 5px" required min-lenght = 8> </br>
+							<input type="password" name = "mdp" placeholder = "Entrer votre mot de passe " style=" margin-bottom:25px; 
+								 border:none; border-bottom:1px solid black; width: 85%; outline:none; background-color: #f0f0f0; 
+								 height: 35px;padding-left: 5px" minlength="8"  > </br>
 										       
-										       <input type="password" name ="cmdp" placeholder = "Confirmez votre mot de passe" style=" margin-bottom:30px; border:none;
-										        border-bottom:1px solid black; width: 85%; outline:none;  background-color: #f0f0f0; height: 35px; 
-										        padding-left: 5px" required min-lenght = 8></br>
+							 <input type="password" name ="cmdp" placeholder = "Confirmez votre mot de passe" style=" margin-bottom:30px; border:none;
+								  border-bottom:1px solid black; width: 85%; outline:none;  background-color: #f0f0f0; height: 35px; 
+								  padding-left: 5px"></br>
 										    
-										       <input type="submit" value="Enregistrer" name="enregistrer" id="envoyer" style="width: 85%;
-										        color:black; border:none; font-weight:bold; font-size:18px; height: 40px; border-radius: 5px; 
-										        background: linear-gradient(135deg, #71b7e6, #9b59b6);  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2); ">
+							 <input type="submit" value="Enregistrer" name="enregistrer" id="envoyer" style="width: 85%;
+								  color:black; border:none; font-weight:bold; font-size:18px; height: 40px; border-radius: 5px; 
+								  background: linear-gradient(135deg, #71b7e6, #9b59b6);  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2); ">
 									       
 									       <!-- VOUS AVEZ DEJA UN COMPTE  -->
 									       
@@ -75,25 +70,18 @@ crossorigin="anonymous" referrerpolicy="no-referrer" />
 						      
 		 </div>
 						      
-						      
-						      
-						      
-						      
-						      
-						      
+			
 	<!--                      Start Slid of left                   -->
 	
-			  <div class="gauche">
-			  
-						 <div style="margin-top:70px; margin-left:50px;">
-					    <div>
+		 <div class="gauche">
+			 <div style="margin-top:70px; margin-left:50px;">
+				 <div>
 						<h2 style="color: #037; text-align: center; font-size:20px;">FIRST FREE SCHOOL !</h2>
-						</div>
+				</div>
 					
-						<div>
-						<img alt="myImage" src="img/inscrire.png" width="400px" height="350px" style="margin-left:12%;">
-						
-						</div>
+				<div>
+					<img alt="myImage" src="img/inscrire.png" width="400px" height="350px" style="margin-left:12%;">		
+			   </div>
 			  </div>
 			
 	 </div>

@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.others.ml.DataBase;
+import com.others.ml.OthersFunction;
 import com.others.ml.Personnes;
 
 /**
@@ -34,14 +35,7 @@ public class Monservlet2 extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		this.getServletContext().getRequestDispatcher("/WEB-INF/fileJsp/Inscrire.jsp").forward(request, response);
 		
-//		HttpSession session = request.getSession();
-//		String nom = (String) session.getAttribute("nom");
-//		String prenom = (String) session.getAttribute("prenom");
-//		String pseudo = (String) session.getAttribute("pseudo");
-//		String email = (String) session.getAttribute("email");
-//		String password = (String) session.getAttribute("password");
-//		
-//	     session.invalidate();
+//     session.invalidate();
 	}
 
 	/**
@@ -56,6 +50,9 @@ public class Monservlet2 extends HttpServlet {
 		HttpSession session = request.getSession();
 		
 		List<Personnes> list = (ArrayList<Personnes>) session.getAttribute("liste");
+//		if a user exist the list not create 
+//		si le user existe il va plus le créer
+		
 		if(session.getAttribute("liste") == null)
 			list = new ArrayList<>();
 		
@@ -67,28 +64,43 @@ public class Monservlet2 extends HttpServlet {
 		password = request.getParameter("mdp");
 		passwordConfirme = request.getParameter("cmdp");
 		
-		Personnes u = new Personnes(nom, prenom,pseudo, email,password);
+
 		
-		list.add(u);
+		//call the function passwordCompare in othersFunction
 		
-		
-		
-		
-//		Mettre les données dans la variable de session
-		
-		session.setAttribute("user", u);
-	    session.setAttribute("liste", list);
-	  	 
-//		session.setAttribute("prenom", prenom);
-//		session.setAttribute("pseudo", pseudo);
-//		session.setAttribute("email", email);
-//		session.setAttribute("password", password);
-		 
-		this.getServletContext().getRequestDispatcher("/WEB-INF/fileJsp/home.jsp").forward(request, response);
-		
+//		OthersFunction other = new OthersFunction();
+//		passwordCompare(password, passwordConfirme);
 //		
-//	
+//		System.out.println(other);
+		System.out.println(nom +" value:"+prenom+"email:"+email);
+//
+	
+			
 		
+if(password.equals(passwordConfirme)) {
+				
+				
+				Personnes u = new Personnes(nom, prenom,pseudo, email,password);
+				
+				list.add(u);
+				
+				session.setAttribute("user", u);
+				
+				session.setAttribute("liste", list);
+				
+				this.getServletContext().getRequestDispatcher("/WEB-INF/fileJsp/home.jsp").forward(request, response);
+				
+				
+			}else {
+				String message = "error, PASSWORD and PASSWORDCONFIRME is not equals! ";
+				
+				session.setAttribute("error", message);
+				
+				this.getServletContext().getRequestDispatcher("/WEB-INF/fileJsp/Inscrire.jsp").forward(request,response);
+				
+			}
+			
+	
 		
 	}
 

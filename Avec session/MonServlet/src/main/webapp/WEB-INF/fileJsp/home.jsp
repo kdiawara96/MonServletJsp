@@ -65,11 +65,12 @@ ORANGE DIGITAL CENTER
 
 
     </ul>
-    <form class="form-inline my-2 my-lg-0">
     
-      <input class="form-control mr-sm-2" type="search" placeholder="Recherche" aria-label="Search">
-      <button class="btn btn-outline-warning my-2 my-sm-0 " type="submit">
-     	 Recherche
+    <form class="form-inline my-2 my-lg-0"  action="Monservlet" method="get">
+    
+      <!-- <input class="form-control mr-sm-2" type="search" placeholder="Recherche" aria-label="Search"> -->
+      <button class="btn btn-outline-danger my-2 my-sm-0 " type="submit">
+     	 Deconnexion
       </button>
       
     </form>
