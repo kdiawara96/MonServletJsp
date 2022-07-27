@@ -56,13 +56,14 @@ public class Monservlet2 extends HttpServlet {
 		if(session.getAttribute("liste") == null)
 			list = new ArrayList<>();
 		
+//		la function trim permet d'enlever les espaces sur la chaine de caractère appliquer
 		
-		nom = request.getParameter("nom");
-		prenom = request.getParameter("prenom");
-		pseudo = request.getParameter("pseudo");
-		email = request.getParameter("email");
-		password = request.getParameter("mdp");
-		passwordConfirme = request.getParameter("cmdp");
+		nom = request.getParameter("nom").trim();
+		prenom = request.getParameter("prenom").trim();
+		pseudo = request.getParameter("pseudo").trim();
+		email = request.getParameter("email").trim();
+		password = request.getParameter("mdp").trim();
+		passwordConfirme = request.getParameter("cmdp").trim();
 		
 
 		
@@ -72,12 +73,16 @@ public class Monservlet2 extends HttpServlet {
 //		passwordCompare(password, passwordConfirme);
 //		
 //		System.out.println(other);
-		System.out.println(nom +" value:"+prenom+"email:"+email);
 //
-	
-			
+//		nom.trim();
+//		prenom.trim();
+//		pseudo.trim();
+//		email.trim();
+//		password.trim();
 		
-if(password.equals(passwordConfirme)) {
+			if(!nom.equals("") && !prenom.equals("") && !pseudo.equals("") && !email.equals("") && !password.equals("")) {
+		
+     if(password.equals(passwordConfirme) && password.length() >7) {
 				
 				
 				Personnes u = new Personnes(nom, prenom,pseudo, email,password);
@@ -92,16 +97,23 @@ if(password.equals(passwordConfirme)) {
 				
 				
 			}else {
-				String message = "error, PASSWORD and PASSWORDCONFIRME is not equals! ";
+				String message = "error, PASS and PASS_Confi is not equals! ";
 				
-				session.setAttribute("error", message);
+				request.setAttribute("error", message);
+				
+				this.getServletContext().getRequestDispatcher("/WEB-INF/fileJsp/Inscrire.jsp").forward(request,response);
+				
+	}
+     
+			}else {
+		
+				 String message = "error, un ou plusieurs CAMPS sont vide! ";
+				
+				request.setAttribute("error", message);
 				
 				this.getServletContext().getRequestDispatcher("/WEB-INF/fileJsp/Inscrire.jsp").forward(request,response);
 				
 			}
-			
-	
-		
 	}
 
 }

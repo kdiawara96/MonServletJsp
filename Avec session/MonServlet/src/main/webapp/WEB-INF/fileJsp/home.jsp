@@ -55,14 +55,18 @@ ORANGE DIGITAL CENTER
  
   <li class="nav-item" >
           <a class="nav-link" href="">
-          <button class="btn btn-outline-success " type="submit"  style="font-size:15px;border-radius:50px; box-shadow:0px 7px 5px 	#777;">OD Kalanso</button></a>
+          <button class="btn btn-outline-success " type="submit"  style="">OD Kalanso</button></a>
   </li>
  
 <li class="nav-item" >
       <a class="nav-link" href="">
-      <button class="btn btn-outline-secondary " type="submit"  style="font-size:15px;border-radius:50px; box-shadow:0px 7px 5px 	#777;">OD Simplon</button></a>
+      <button class="btn btn-outline-secondary " type="submit"  style="">OD Simplon</button></a>
 </li>
 
+<li class="nav-item" >
+      <a class="nav-link" href="">
+      <button class="btn btn-outline-primary" type="submit"  style="">O FabLab</button></a>
+</li>
 
     </ul>
     
@@ -106,10 +110,10 @@ ORANGE DIGITAL CENTER
 			
 			<h4>
 			   <b>
-			      <i class="fa-solid fa-user"></i> <% out.print(us.getNom()+ " " + us.getPrenom()); %>
+			      </i> <% out.print(us.getNom()+ " " + us.getPrenom()); %>
 			   </b>
 			</h4>
-			<p><i class="fa-solid fa-envelope"></i>   <% out.print(us.getEmail());%></p>
+			<p> <% out.print(us.getEmail());%></p>
 			
 			</div>
 			
@@ -122,6 +126,13 @@ ORANGE DIGITAL CENTER
 	  <!--STYLE OF CSS TAGS  -->
 	  
 	 <style>
+	 
+	 
+/* 	.nav-link{
+		font-size:15px;
+		border-radius:50px; 
+		box-shadow:0px 7px 5px 	#777;
+}  */
 	 
 	     .navbar{
       box-shadow:0px 5px 5px 	#777;
@@ -142,13 +153,15 @@ ORANGE DIGITAL CENTER
 
 /* On mouse-over, add a deeper shadow */
  .card:hover {
-  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+		  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
      }
 
 /* Add some padding inside the card container */
 .container {
-  padding: 2px 16px;
+  		padding: 2px 16px;
 }
+
+
 	 
 	 </style>
 

@@ -33,7 +33,10 @@ crossorigin="anonymous" referrerpolicy="no-referrer" />
 		   		        
 		       
 		     <div class="bttG">
-		       <button  class='google'  style="width: 90px; height: 40px ; background:transparent; border-radius:5px;border:1px solid black; font-weight: bold; color: #a97;"><i class="fa-brands fa-google" style="color: blue ;margin-right:5px;" ></i>Google</button>
+		     
+		    	      
+	       <button  class='google'  style="width: 90px; height: 40px ; background:transparent; border-radius:5px;border:1px solid black; font-weight: bold; color: #a97;"><i class="fa-brands fa-google" style="color: blue ;margin-right:5px;" ></i>Google</button>
+ 	      
 		       </div>
 		          
 		     <div class="bttF">

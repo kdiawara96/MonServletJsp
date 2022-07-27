@@ -12,48 +12,41 @@ crossorigin="anonymous" referrerpolicy="no-referrer" />
 <body>
 <div class="container">
 	<div class="droite">
+
+	
+	
 	    <div class="inscrire_texte">
 			<h1>Inscription</h1>
-			
-			<c:if>
-			<h5 style="color: red; font-size:13px;">${sessionScope.error}</h5>
-			</c:if>
-			
-				</div>
+	
+		</div>
+			<% if(request.getAttribute("error") != null){%>
+				 <p style="background-color: red; border-radius:5px; margin-right: 80px; height: 30px;">
+					  <span style="color: white; font-weight:bold; font-size:13px; text-align:center; margin-left:15px;"> 
+					   ${error}
+					  </span>
+				   </p>
+			<%}
+			%>
 					<form action="Monservlet2" method="post">
 						           
-						   <input type="text" name ="nom" placeholder = "Entrer votre nom" style=" margin-bottom:25px; border:none;
-								 border-bottom:1px solid black; width: 85%;   margin-top:20px;   outline:none; background-color: #f0f0f0;
-								 height: 35px;padding-left: 5px" required > </br>
+						   <input type="text" name ="nom" placeholder = "Entrer votre nom" style=" "  > </br>
 										      
-					       <input type="text" name ="prenom" placeholder = "Entrer votre prénom" style=" margin-bottom:30px; border:none;
-				         		  border-bottom:1px solid black; width: 85%; outline:none;  background-color: #f0f0f0; height: 35px;
-								  padding-left: 5px" required  ></br>
+					       <input type="text" name ="prenom" placeholder = "Entrer votre prénom" style=""   ></br>
 										        
-						   <input type="text" name = "pseudo" placeholder = "Entrer votre pseudo" style=" margin-bottom:25px; border:none;
-						        border-bottom:1px solid black; width: 85%; outline:none;
-						        background-color: #f0f0f0; height: 35px;padding-left: 5px" required > </br>
+						   <input type="text" name = "pseudo" placeholder = "Entrer votre pseudo" style=""  > </br>
 										       
-			                <input type="email" name ="email" placeholder = "Entrer votre E-mail" style=" margin-bottom:30px; border:none;
-							     border-bottom:1px solid black; width: 85%; outline:none;  background-color: #f0f0f0; height: 35px;
-								 padding-left: 5px"  required ></br>
+			                <input type="email" name ="email" placeholder = "Entrer votre E-mail" style=""   ></br>
 										      
-							<input type="password" name = "mdp" placeholder = "Entrer votre mot de passe " style=" margin-bottom:25px; 
-								 border:none; border-bottom:1px solid black; width: 85%; outline:none; background-color: #f0f0f0; 
-								 height: 35px;padding-left: 5px" minlength="8"  > </br>
+							<input type="password" name = "mdp" placeholder = "Entrer votre mot de passe " style=""  > </br>
 										       
-							 <input type="password" name ="cmdp" placeholder = "Confirmez votre mot de passe" style=" margin-bottom:30px; border:none;
-								  border-bottom:1px solid black; width: 85%; outline:none;  background-color: #f0f0f0; height: 35px; 
-								  padding-left: 5px"></br>
+							 <input type="password" name ="cmdp" placeholder = "Confirmez votre mot de passe" style=""></br>
 										    
-							 <input type="submit" value="Enregistrer" name="enregistrer" id="envoyer" style="width: 85%;
-								  color:black; border:none; font-weight:bold; font-size:18px; height: 40px; border-radius: 5px; 
-								  background: linear-gradient(135deg, #71b7e6, #9b59b6);  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2); ">
+							 <input type="submit" value="Enregistrer" name="enregistrer" id="envoyer" style="">
 									       
 									       <!-- VOUS AVEZ DEJA UN COMPTE  -->
 									       
 									       
-										         <div style=" margin-right:20%; margin-top:10px; text-align:center;">
+										         <div class="dejaC" style=" ">
 										         
 													       <p>Vous avez déjà un compte?</p>
 													       
@@ -76,7 +69,7 @@ crossorigin="anonymous" referrerpolicy="no-referrer" />
 		 <div class="gauche">
 			 <div style="margin-top:70px; margin-left:50px;">
 				 <div>
-						<h2 style="color: #037; text-align: center; font-size:20px;">FIRST FREE SCHOOL !</h2>
+						<h2 class="ffs" style="">FIRST FREE SCHOOL !</h2>
 				</div>
 					
 				<div>
@@ -102,7 +95,7 @@ crossorigin="anonymous" referrerpolicy="no-referrer" />
 			
 			
 			
-			body{
+	  body{
 						background-color: #fff;
 						/* La propriété flex est une propriété raccourcie qui
 						 définit la capacité d'un élément flexible à modifier ses 
@@ -114,7 +107,7 @@ crossorigin="anonymous" referrerpolicy="no-referrer" />
 						
 			}
 			
-			.container
+.container
 			{
 					position: relative;
 					width: 100%;
@@ -126,15 +119,20 @@ crossorigin="anonymous" referrerpolicy="no-referrer" />
 			
 			}
 					
-			.container .gauche
+.container .gauche
 			{
 				    position: relative;
 				    background: orange;
 				    padding: 40px;
-				      border-radius:10% 0% 0% 10%;
+				    border-radius:10% 0% 0% 10%;
+			}
+.dejaC{
+			margin-right:20%; 
+			margin-top:10px; 
+			text-align:center;
 			}
 			
-			.container .droite
+.container .droite
 			{
 			    position: relative;
 			    background: #fff;
@@ -143,12 +141,32 @@ crossorigin="anonymous" referrerpolicy="no-referrer" />
 			}
 			
 			
-			.inscrire_texte{
+.inscrire_texte{
 			color: #037;
 			padding: 0% 0% 0% 15%;
 			font-size: 22px;
 }
-			
+div .ffs{
+			color: #037; 
+			text-align: center;
+			font-size:20px;
+}
+
+form input{
+			margin-bottom:8px; border:none;
+			border-bottom:1px solid black; 
+			width: 85%;
+			margin-top:20px;
+			outline:none;
+			background-color: #f0f0f0;
+			height: 35px;
+			padding-left: 5px
+}
+form #envoyer{
+width: 85%;
+ color:black; border:none; font-weight:bold; font-size:18px; height: 40px; border-radius: 5px; 
+								  background: linear-gradient(135deg, #71b7e6, #9b59b6);  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2); 
+}		
 
 
         </style>
